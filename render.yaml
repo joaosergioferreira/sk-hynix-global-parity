@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: sk-hynix-global-parity
+    runtime: python
+    plan: free
+    buildCommand: "echo 'Standard library: nothing to install'"
+    startCommand: "python app.py"
+    healthCheckPath: /api/health
+    envVars:
+      - key: QUOTE_CACHE_SECONDS
+        value: "75"
+      - key: PYTHONUNBUFFERED
+        value: "1"
